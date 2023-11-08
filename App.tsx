@@ -5,31 +5,11 @@
  * @format
  */
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {Text, View} from 'react-native';
-import { Counter } from './src/features/counter/Counter';
-
-function HomeScreen() {
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Midnight Home</Text>
-      <Counter />
-    </View>
-  );
-}
-
-const Stack = createNativeStackNavigator();
+import Navigation from './src/Navigation';
 
 function App(): JSX.Element {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  return <Navigation />;
 }
 
 export default App;
