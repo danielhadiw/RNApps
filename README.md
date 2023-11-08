@@ -1,92 +1,188 @@
-# Midnight Frontend
 
 
+This project react-native applications.
 
-## Getting started
+## Prerequisites
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- [Node.js > 12](https://nodejs.org) and npm (Recommended: Use [nvm](https://github.com/nvm-sh/nvm))
+- [Watchman](https://facebook.github.io/watchman)
+- [Xcode 12](https://developer.apple.com/xcode)
+- [Cocoapods 1.10.1](https://cocoapods.org)
+- [JDK > 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+- [Android Studio and Android SDK](https://developer.android.com/studio)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Base dependencies
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://git-wgs.stagingapps.net/wgs/midnight/midnight-fe.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://git-wgs.stagingapps.net/wgs/midnight/midnight-fe/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+- [axios](https://github.com/axios/axios) for networking.
+- [react-native-config](https://github.com/luggit/react-native-config) to manage envionments.
+- [react-navigation](https://reactnavigation.org/) navigation library.
+- [@reduxjs/toolkit](https://redux-toolkit.js.org/) for state management.
+- [jest](https://facebook.github.io/jest/) and [react-native-testing-library](https://callstack.github.io/react-native-testing-library/) for testing.
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Running Development
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+You can start by cloning this repository and using [react-native-rename](https://github.com/junedomingo/react-native-rename). In the current state of this project, it should give you no issues at all, just run the script, delete your node modules and reinstall them and you should be good to go.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Keep in mind that this library can cause trouble if you are renaming a project that uses `Pods` on the iOS side.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+After that you should proceed as with any javascript project:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+- Go to your project's root folder and run `npm install`.
+- If you are using Xcode 12.5 or higher got to /ios and execute `pod install --`repo-update`
+- Run `npm run ios` or `npm run android` to start your application!
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+(Using yarn: `yarn ios` or `yarn android`)
 
-## License
-For open source projects, say how it is licensed.
+Note: Please read the Setup environments section that is below in this file for more information about the execution scripts.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### Option 2: Copy the structure to your project
+
+If you want to roll on your own and don't want to use this as a template, you can create your project and then copy the `/src` folder (which has all the code of your application) and update your `index.js`.
+
+Keep in mind that if you do this, you'll have to **install and link** all dependencies (as well as adding all the necessary native code for each library that requires it).
+
+## Folder structure
+
+This template follows a very simple project structure:
+
+- `src`: This folder is the main container of all the code inside your application.
+  - `actions`: This folder contains all actions that can be dispatched to redux.
+  - `assets`: Asset folder to store all images, vectors, etc.
+  - `components`: Folder to store any common component that you use through your app (such as a generic button)
+  - `constants`: Folder to store any kind of constant that you have.
+  - `controllers`: Folder to store all your network logic (you should have one controller per resource).
+  - `localization`: Folder to store the languages files.
+  - `navigation`: Folder to store the navigators.
+  - `reducers`: This folder should have all your reducers, and expose the combined result using its `index.js`
+  - `screens`: Folder that contains all your application screens/features.
+    - `Screen`: Each screen should be stored inside its folder and inside it a file for its code and a separate one for the styles and tests.
+      - `Screen.js`
+      - `Screen.styles.js`
+      - `Screen.test.js`
+  - `selectors`: Folder to store your selectors for each reducer.
+  - `storage`: Folder that contains the application storage logic.
+  - `store`: Folder to put all redux middlewares and the store.
+  - `test-utils`: Folder to store tests-related utilities and components.
+  - `theme`: Folder to store all the styling concerns related to the application theme.
+  - `App.js`: Main component that starts your whole app.
+  - `index.js`: Entry point of your application as per React-Native standards.
+
+## Splash screen customization
+
+To customize the splash screen (logo and background color) use the CLI provided in the [official docs](https://github.com/zoontek/react-native-bootsplash#assets-generation).
+
+## Setup environments
+
+### Using scripts from console
+
+The template already has scripts to execute the project calling a specific environment defined into the package.json file. Keep in mind that if you are going to create new `envs` you have to define the script to build the project properly.
+
+To define which env you want to use, just keep the structure `yarn [platform]: [environment]`
+
+
+DEV: `yarn ios` or `yarn android`
+
+STG: `yarn ios:staging` or `yarn android:staging`
+
+PROD: `yarn ios:prod` o `yarn android:prod`
+
+Also, you can use npm following the same rule as before: `npm run ios:staging`
+
+Modify the environment variables files in root folder (`.env.development`, `.env.production` and `.env.staging`)
+
+
+#### Android
+
+A map associating builds with env files is already defined in `app/build.gradle` you can modify or add environments if needed.
+
+For multiple enviroments to work you would need to change `-keep class [YOUR_PACKAGE_NAME].BuildConfig { *; }` on `proguard-rules.pro` file.
+
+#### iOS
+
+The basic idea in iOS is to have one scheme per environment file, so you can easily alternate between them.
+
+To create a new scheme:
+
+- In the Xcode menu, go to Product > Scheme > Edit Scheme
+- Click Duplicate Scheme on the bottom
+- Give it a proper name on the top left. For instance: "qa"
+- Then edit the newly created scheme to make it use a different env file. From the same "manage scheme" window:
+
+  Expand the "Build" tab on the left menu
+  - Click "Pre-actions", and under the plus sign select "New Run Script Action"
+  - Where it says "Type a script or drag a script file", type: `echo ".env.qa" > /tmp/envfile` replacing `.env.qa` with your file.
+- Also, you will need to select the executable for the new schema:
+
+  Expand the "Run" tab on the left menu
+  - Under the "Executable" dropdown select the ".app" you would like to use for that schema
+
+## Generate production version
+
+These are the steps to generate `.apk`, `.aab` and `.ipa` files
+
+### Android
+
+1. Generate an upload key
+2. Setting up gradle variables
+3. Go to the android folder
+4. Execute `./gradlew assemble[Env][BuildType]`
+
+Note: You have three options to execute the project
+`assemble:` Generates an apk that you can share with others.
+`install:` When you want to test a release build on a connected device.
+`bundle:` When you are uploading the app to the Play Store.
+
+For more info please go to https://reactnative.dev/docs/signed-apk-android
+
+### iOS
+
+1. Go to the Xcode
+2. Select the schema
+3. Select 'Any iOS device' as target
+4. Product -> Archive
+
+For more info please go to https://reactnative.dev/docs/publishing-to-app-store
+
+## Styleguide
+
+For coding styling, we decided to go with ESLint and [React Native community's styleguide](https://github.com/facebook/react-native/tree/master/packages/eslint-config-react-native-community#readme).
+
+# How to use it
+
+The idea of this section is to explain how the template composition is the best and easiest to use when you try to use well-formed, architectures, especially using redux flow.
+
+The template follows a simple and convenient exporting pattern. The folder index exposes the resources, allowing to import all from the same path.
+
+With that in mind, we are going to look at each folder to explain how to use it.
+
+## Components
+
+Components are the basic blocks of a react native application, but since we​​ aim to minimize development complexity, all the components are at the same nesting level.
+
+Another important thing is the use of propTypes to check the kind of data that your components need to work properly. If the component receives some data from others, the type of these props must be defined, and in case you need it the default value of the property too.
+
+### Static resources:
+
+To keep an application scalable and organized, the global static resources that are used in the application have to be created in a specific file.
+
+### We manage three main folders for that:
+
+- Assets: Here you can store all the images and icons that you need through the app. You have as an example the icon ic_home.png, to respond with the different device screen densities just create inside the same folder the image and all the scaled versions that you need. RN only handles x1, x2 and x3 in this case, you have.
+
+  - assets
+    - ic_home
+      - ic_home.png
+      - ic_home@2x.png
+      - ic_home@3x.png
+
+## Redux
+
+Once the components are defined, they are tied to the management of information through the application. For this, Redux is implemented with the store-reducer-action structure as usual, however, not only the data is handled through the actions but the success and error responses are also defined by the same form.
+
+## Screens
+
+In this folder, you have the main objects to apply the composition architecture. Just create a folder for each screen you have in your application, call all the components and static resources you need to render the scene and finally use the corresponding hooks to interact with redux and create behaviors depending on the store.
+
+To keep the structure, extract the styles from the main file and place it in a {namefile.styles.js} do the same for the set of tests needed for each screen with the file {namefile.test.js}
