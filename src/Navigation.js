@@ -78,7 +78,6 @@ const TabGroup = () => {
       <Tab.Screen name="Marketplace" component={Marketplace} />
       <Tab.Screen name="Inventory" component={Inventory} />
       <Tab.Screen name="Profile" component={Profile} />
-      <Tab.Screen options={{ headerShown: false }} name="Sign Up" component={SignUp} />
     </Tab.Navigator>
   );
 };
@@ -94,6 +93,7 @@ const LoginStackGroup = () => {
         component={OnboardingScreen}
         options={{ headerShown: false }}
       />
+      <Tab.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
       <LoginStack.Screen name="Home" component={TabGroup} options={{ headerShown: false }} />
     </LoginStack.Navigator>
   );

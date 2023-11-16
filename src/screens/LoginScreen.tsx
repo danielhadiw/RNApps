@@ -67,7 +67,11 @@ const LoginScreen = () => {
       </View>
       <View style={styles.bottomContainer}>
         <Text style={styles.dontHaveText}>Don't have an account</Text>
-        <TouchableWithoutFeedback onPress={() => {}}>
+        <TouchableWithoutFeedback
+          onPress={() => {
+            navigation.navigate('SignUp');
+          }}
+        >
           <Text style={styles.signUpText}> Sign up</Text>
         </TouchableWithoutFeedback>
       </View>
