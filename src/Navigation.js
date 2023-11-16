@@ -93,7 +93,7 @@ const LoginStackGroup = () => {
         component={OnboardingScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
+      <Tab.Screen name="SignUp" component={SignUp} />
       <LoginStack.Screen name="Home" component={TabGroup} options={{ headerShown: false }} />
     </LoginStack.Navigator>
   );

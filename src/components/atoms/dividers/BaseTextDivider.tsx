@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
 type Props = {
-  label: string | "Hello";
+  label: string | 'Hello';
 };
 
 const BaseTextDivider = ({ label }: Props) => {
