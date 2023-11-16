@@ -15,6 +15,7 @@ import CraftSvgComponent from './assets/icons/CraftSvgComponent';
 import InventorySvgComponent from './assets/icons/InventorySvgComponent';
 import ProfileSvgComponent from './assets/icons/ProfileSvgComponent';
 import MarketplaceSvgComponent from './assets/icons/MarketplaceSvgComponent';
+import SignUp from './screens/tabScreens/SignUp';
 
 // Stack
 
@@ -48,6 +49,8 @@ const renderIcon = (name, focused) => {
       return <InventorySvgComponent width={22} height={22} style={{ color: activeColor }} />;
     case 'Profile':
       return <ProfileSvgComponent width={22} height={22} style={{ color: activeColor }} />;
+    case 'Sign Up':
+      return <ProfileSvgComponent width={22} height={22} style={{ color: activeColor }} />;
   }
 };
 
@@ -72,6 +75,7 @@ const TabGroup = () => {
       <Tab.Screen name="Marketplace" component={Marketplace} />
       <Tab.Screen name="Inventory" component={Inventory} />
       <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen options={{ headerShown: false }} name="Sign Up" component={SignUp} />
     </Tab.Navigator>
   );
 };
