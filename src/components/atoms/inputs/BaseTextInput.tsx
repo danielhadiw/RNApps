@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = {
   value: string;
-  inputMode: 'email' | 'search' | 'url';
+  inputMode?: 'email' | 'search' | 'url';
   secureTextEntry?: boolean;
   placeholder?: string;
   onChangeText: (text: string) => void;

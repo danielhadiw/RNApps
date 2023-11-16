@@ -15,14 +15,25 @@ import CraftSvgComponent from './assets/icons/CraftSvgComponent';
 import InventorySvgComponent from './assets/icons/InventorySvgComponent';
 import ProfileSvgComponent from './assets/icons/ProfileSvgComponent';
 import MarketplaceSvgComponent from './assets/icons/MarketplaceSvgComponent';
-import SignUp from './screens/tabScreens/SignUp';
+import SignUp from './screens/signUpStack/SignUp';
 
 import LoginScreen from './screens/LoginScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
+import Password from './screens/signUpStack/Password';
 
 // Stack
 
 const HomeStack = createNativeStackNavigator();
+const SignUpStack = createNativeStackNavigator();
+
+const SignUpStackGroup = () => {
+  return (
+    <SignUpStack.Navigator>
+      <SignUpStack.Screen name="Email" component={SignUp} options={{ headerShown: false }} />
+      <SignUpStack.Screen name="Password" component={Password} options={{ headerShown: false }} />
+    </SignUpStack.Navigator>
+  );
+};
 
 const HomeStackGroup = () => {
   return (
@@ -93,20 +104,16 @@ const LoginStackGroup = () => {
         component={OnboardingScreen}
         options={{ headerShown: false }}
       />
-      <Tab.Screen name="SignUp" component={SignUp} />
+      <Tab.Screen name="SignUp" component={SignUpStackGroup} options={{ headerShown: false }} />
       <LoginStack.Screen name="Home" component={TabGroup} options={{ headerShown: false }} />
     </LoginStack.Navigator>
   );
 };
 
-const isLogin = false;
-
 const Navigation = () => {
   return (
     <NavigationContainer>
-      {/* {isLogin ? <TabGroup /> : <LoginStackGroup />} */}
       <LoginStackGroup />
-      {/* <TabGroup /> */}
     </NavigationContainer>
   );
 };
