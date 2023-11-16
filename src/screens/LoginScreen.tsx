@@ -10,10 +10,13 @@ import {
   TextInput,
 } from 'react-native';
 import MainButton from '../components/MainButton';
+import BaseButton from '../components/atoms/buttons/BaseButton';
+import BaseTextDivider from '../components/atoms/dividers/BaseTextDivider';
+import BaseTextInput from '../components/atoms/inputs/BaseTextInput';
 
 const LoginScreen = () => {
-  const [text, onChangeText] = React.useState('');
-  const [password, onChangePassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const { width: SCREEN_WIDTH } = useWindowDimensions();
 
   const navigation = useNavigation();
@@ -22,41 +25,21 @@ const LoginScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={[styles.itemContainer, { width: SCREEN_WIDTH }]}>
         <Text style={styles.titleText}>Welcome back!</Text>
-        <View style={{ paddingVertical: 8 }} />
-        <MainButton
-          buttonTitle={'Continue with Steam'}
-          navigateTo={''}
-          buttonStyle={{ backgroundColor: 'white' }}
-          textStyle={{}}
+        <BaseButton label="Continue with Steam" onPress={() => console.log('test')} />
+        <BaseButton label="Continue with Epic Steam" onPress={() => console.log('test')} />
+        <BaseButton label="Continue with Apple" onPress={() => console.log('test')} />
+        <BaseTextDivider label="OR" />
+        <BaseTextInput
+          placeholder="Email address"
+          value={email}
+          onChangeText={(e) => setEmail(e)}
+          inputMode="email"
         />
-        <View style={{ paddingVertical: 8 }} />
-        <MainButton
-          buttonTitle={'Continue with Epic Games'}
-          navigateTo={''}
-          buttonStyle={{ backgroundColor: 'white' }}
-          textStyle={{}}
-        />
-        <View style={{ paddingVertical: 8 }} />
-        <MainButton
-          buttonTitle={'Continue with Apple'}
-          navigateTo={''}
-          buttonStyle={{ backgroundColor: 'white' }}
-          textStyle={{}}
-        />
-        <View style={{ paddingVertical: 4 }} />
-        <Text>OR</Text>
-        <TextInput
-          placeholder="Email Address"
-          style={[styles.input, { width: SCREEN_WIDTH }]}
-          onChangeText={onChangeText}
-          value={text}
-        />
-        <TextInput
+        <BaseTextInput
           placeholder="Password"
-          style={[styles.input, { width: SCREEN_WIDTH }]}
-          onChangeText={onChangePassword}
           value={password}
-          secureTextEntry
+          onChangeText={(e) => setPassword(e)}
+          inputMode="email"
         />
         <MainButton
           buttonTitle={'Login'}
@@ -89,7 +72,8 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     flex: 1,
-    paddingVertical: 80,
+    paddingVertical: 60,
+    paddingHorizontal: 16,
     alignItems: 'center',
     backgroundColor: 'white',
   },
