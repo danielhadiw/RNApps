@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './screens/tabScreens/Profile';
 import Inventory from './screens/tabScreens/Inventory';
@@ -15,10 +15,26 @@ import CraftSvgComponent from './assets/icons/CraftSvgComponent';
 import InventorySvgComponent from './assets/icons/InventorySvgComponent';
 import ProfileSvgComponent from './assets/icons/ProfileSvgComponent';
 import MarketplaceSvgComponent from './assets/icons/MarketplaceSvgComponent';
+import SignUp from './screens/signUpStack/SignUp';
+
+import LoginScreen from './screens/LoginScreen';
+import OnboardingScreen from './screens/OnboardingScreen';
+import Password from './screens/signUpStack/Password';
+import VerificationScreen from './screens/VerificationScreen';
 
 // Stack
 
 const HomeStack = createNativeStackNavigator();
+const SignUpStack = createNativeStackNavigator();
+
+const SignUpStackGroup = () => {
+  return (
+    <SignUpStack.Navigator>
+      <SignUpStack.Screen name="Email" component={SignUp} options={{ headerShown: false }} />
+      <SignUpStack.Screen name="Password" component={Password} options={{ headerShown: false }} />
+    </SignUpStack.Navigator>
+  );
+};
 
 const HomeStackGroup = () => {
   return (
@@ -48,6 +64,8 @@ const renderIcon = (name, focused) => {
       return <InventorySvgComponent width={22} height={22} style={{ color: activeColor }} />;
     case 'Profile':
       return <ProfileSvgComponent width={22} height={22} style={{ color: activeColor }} />;
+    case 'Sign Up':
+      return <ProfileSvgComponent width={22} height={22} style={{ color: activeColor }} />;
   }
 };
 
@@ -76,10 +94,32 @@ const TabGroup = () => {
   );
 };
 
+const LoginStack = createNativeStackNavigator();
+
+const LoginStackGroup = () => {
+  return (
+    <LoginStack.Navigator>
+      <LoginStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <LoginStack.Screen
+        name="Onboarding"
+        component={OnboardingScreen}
+        options={{ headerShown: false }}
+      />
+      <LoginStack.Screen
+        name="Verification"
+        component={VerificationScreen}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen name="SignUp" component={SignUpStackGroup} options={{ headerShown: false }} />
+      <LoginStack.Screen name="Home" component={TabGroup} options={{ headerShown: false }} />
+    </LoginStack.Navigator>
+  );
+};
+
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <TabGroup />
+      <LoginStackGroup />
     </NavigationContainer>
   );
 };
