@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './screens/tabScreens/Profile';
 import Inventory from './screens/tabScreens/Inventory';
@@ -15,6 +15,9 @@ import CraftSvgComponent from './assets/icons/CraftSvgComponent';
 import InventorySvgComponent from './assets/icons/InventorySvgComponent';
 import ProfileSvgComponent from './assets/icons/ProfileSvgComponent';
 import MarketplaceSvgComponent from './assets/icons/MarketplaceSvgComponent';
+
+import LoginScreen from './screens/LoginScreen';
+import OnboardingScreen from './screens/OnboardingScreen';
 
 // Stack
 
@@ -76,10 +79,30 @@ const TabGroup = () => {
   );
 };
 
+const LoginStack = createNativeStackNavigator();
+
+const LoginStackGroup = () => {
+  return (
+    <LoginStack.Navigator>
+      <LoginStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+      <LoginStack.Screen
+        name="Onboarding"
+        component={OnboardingScreen}
+        options={{ headerShown: false }}
+      />
+      <LoginStack.Screen name="Home" component={TabGroup} options={{ headerShown: false }} />
+    </LoginStack.Navigator>
+  );
+};
+
+const isLogin = false;
+
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <TabGroup />
+      {/* {isLogin ? <TabGroup /> : <LoginStackGroup />} */}
+      <LoginStackGroup />
+      {/* <TabGroup /> */}
     </NavigationContainer>
   );
 };
